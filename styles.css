@@ -1,0 +1,98 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the top */
+    margin: 0;
+    background-color: #f5f5f5;
+}
+.top-title {
+    font-size: 10vh;
+    color: #183116;
+    margin-top: 5vh;
+    margin-left: 5vw;
+}
+.catch-phrase {
+    font-size: 3vh;
+    color: #183116;
+    margin-top: 2vh;
+    margin-left: 5vw;
+    font-weight: bold;
+}
+.top-section {
+    width: 100%;
+    height: 40vh;
+    background-color: #32CD32;
+    position: relative;
+}
+.bottom-section {
+    width: 100%;
+    height: 35vh;
+    background-color: #32CD32;
+    position: relative;
+}
+
+.bottom-right-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-height: 40vh;
+    max-width: 50vw; 
+    height: auto;
+    margin-right: 3vw;
+}
+.mission-section {
+    text-align: justify; /* Justify the text */
+    padding: 20px;
+    max-width: 800px;
+}
+
+.mission-section h2 {
+    text-align: center; /* Center the heading */
+    font-size: 2em;
+    color: #2c3e50;
+}
+
+.container {
+    margin: 2vh auto auto auto;
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+p {
+    color: #7f8c8d;
+}
+
+.email-input {
+    margin: 15px 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color:  #32CD32; /* Wise green color */
+    color: rgb(1, 55, 1);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #008f7a; /* Darker green for hover effect */
+}
