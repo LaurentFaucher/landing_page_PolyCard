@@ -32,7 +32,6 @@
         </div>
     </div>
     
-    <!-- Snackbar -->
     <div id="snackbar"></div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -54,12 +53,15 @@
                 return;
             }
 
-            // Simulate form submission
             fetch('https://script.google.com/macros/s/AKfycbx9jNzxaOlxaG2RmiBIGkAFrMadzMGBL-6kPKuGyQV3riGSvEwiLNXfmbo7XMjcbk25/exec', {
                 method: 'POST',
                 body: new URLSearchParams(new FormData(event.target))
             })
             .then(response => {
+                const emailInput = document.querySelector('.email-input');
+                if (emailInput) {
+                    emailInput.value = '';
+                }
                 if (response.ok) {
                     snackbar.textContent = 'Subscription successful!';
                     snackbar.className = 'show success';
