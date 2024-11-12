@@ -25,24 +25,59 @@
         <div class="container" data-aos="fade-up">
             <h1>Welcome to PolyCard 🎉</h1>
             <p>Join our mission to recycle responsibly and stay updated on our progress 🚀</p>
-            <form action="#" method="POST">
+            <form id="subscription-form">
                 <input type="email" class="email-input" name="email" placeholder="Enter your email" required>
                 <button type="submit" class="submit-btn">Subscribe to our Newsletter</button>
             </form>
         </div>
     </div>
-
+    
+    <!-- Snackbar -->
+    <div id="snackbar"></div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
     </script>
     <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
+        document.querySelector('#subscription-form').addEventListener('submit', function(event) {
+            event.preventDefault();
             const emailInput = document.querySelector('.email-input');
+            const snackbar = document.getElementById('snackbar');
+            
             if (!emailInput.value.includes('@')) {
-                event.preventDefault();
-                alert('Please enter a valid email address.');
+                snackbar.textContent = 'Please enter a valid email address.';
+                snackbar.className = 'show error';
+                setTimeout(function() {
+                    snackbar.className = snackbar.className.replace('show', '');
+                }, 3000);
+                return;
             }
+
+            // Simulate form submission
+            fetch('https://script.google.com/macros/s/AKfycbx9jNzxaOlxaG2RmiBIGkAFrMadzMGBL-6kPKuGyQV3riGSvEwiLNXfmbo7XMjcbk25/exec', {
+                method: 'POST',
+                body: new URLSearchParams(new FormData(event.target))
+            })
+            .then(response => {
+                if (response.ok) {
+                    snackbar.textContent = 'Subscription successful!';
+                    snackbar.className = 'show success';
+                } else {
+                    snackbar.textContent = 'Subscription failed. Please try again.';
+                    snackbar.className = 'show error';
+                }
+                setTimeout(function() {
+                    snackbar.className = snackbar.className.replace('show', '');
+                }, 3000);
+            })
+            .catch(error => {
+                snackbar.textContent = 'An error occurred. Please try again.';
+                snackbar.className = 'show error';
+                setTimeout(function() {
+                    snackbar.className = snackbar.className.replace('show', '');
+                }, 3000);
+            });
         });
     </script>
 </body>
